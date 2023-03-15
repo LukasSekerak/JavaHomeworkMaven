@@ -1,14 +1,30 @@
 package main;
 
-import org.apache.commons.lang3.StringUtils;
+import java.awt.Color;
+import java.awt.Font;
+
+import ij.IJ;
+import ij.ImagePlus;
+import ij.process.ImageProcessor;
 
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println(StringUtils.isEmpty("haha"));
-		//nájsť knižnicu na otvorenie obrázku a pridanie textu do neho
-		//v gitHube - poslať
-		//do piatka
+		/* 	Úloha nájsť knižnicu na otvorenie obrázku a pridanie textu do neho
+			v gitHube - poslať do piatka.
+		*/
+		
+		ImagePlus image = IJ.openImage("randomImage.jpg");
+		
+		Font font = new Font("Arial", Font.BOLD, 18);
+
+		ImageProcessor ip = image.getProcessor();
+		ip.setColor(Color.GREEN);
+		ip.setFont(font);
+		ip.drawString("This is a TEXT!", 0, 20);
+		
+		image.show();
+
 	}
 
 }
